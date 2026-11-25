@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HLIMENRIDERS | Official Store</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#090909;color:white;font-family:Arial,sans-serif}
+header{padding:22px 6%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #292929}
+.logo{font-size:25px;font-weight:900;letter-spacing:2px}
+nav a{color:white;text-decoration:none;margin-left:18px;font-size:13px}
+.hero{padding:85px 7%;background:linear-gradient(110deg,#171717,#080808);text-align:center}
+.hero h1{font-size:clamp(36px,8vw,68px);margin:0;font-weight:900}
+.hero p{color:#aaa;letter-spacing:2px}
+.btn{display:inline-block;background:white;color:black;padding:14px 24px;border:0;border-radius:4px;font-weight:bold;cursor:pointer;text-decoration:none}
+section{padding:55px 6%}
+.heading{text-align:center;font-size:30px;margin-bottom:30px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.card{background:#171717;border:1px solid #303030;border-radius:9px;overflow:hidden}
+.product-img{height:190px;background:linear-gradient(145deg,#292929,#101010);display:grid;place-items:center;font-size:60px}
+.card-content{padding:18px}
+.card h3{margin:0 0 10px}
+.price{color:#ddd;font-weight:bold}
+select,input,textarea{width:100%;padding:13px;background:#101010;color:white;border:1px solid #444;border-radius:5px;margin:7px 0 14px}
+label{font-size:13px;color:#ccc}
+.card button,.submit{width:100%;padding:13px;background:white;color:black;border:0;border-radius:5px;font-weight:bold;cursor:pointer}
+.panel{max-width:650px;margin:auto;background:#171717;padding:25px;border:1px solid #333;border-radius:10px}
+.panel h3{margin-top:0}
+.cartline{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #333}
+footer{text-align:center;padding:35px;color:#888;border-top:1px solid #292929}
+.small{font-size:12px;color:#999}
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo">HLIMENRIDERS</div>
+<nav>
+<a href="#home">HOME</a>
+<a href="#membership">JOIN</a>
+<a href="#shop">SHOP</a>
+<a href="#cart">CART (<span id="count">0</span>)</a>
+</nav>
+</header>
+
+<div class="hero" id="home">
+<p>WELCOME TO THE OFFICIAL STORE</p>
+<h1>HLIMENRIDERS</h1>
+<p>RIDE TOGETHER. STAND TOGETHER.</p>
+<a class="btn" href="#shop">EXPLORE STORE</a>
+</div>
+
+<section id="membership">
+<h2 class="heading">BECOME A MEMBER</h2>
+<div class="panel">
+<h3>HLIMENRIDERS Membership Registration</h3>
+<p class="small">Fill in your information to apply for membership.</p>
+<form id="memberForm">
+<label>Full Name</label>
+<input required placeholder="Enter your full name">
+<label>Phone Number</label>
+<input required type="tel" placeholder="Enter phone number">
+<label>Address / Veng</label>
+<input required placeholder="Your address">
+<label>Age</label>
+<input required type="number" min="18" placeholder="Your age">
+<label>Motorcycle Details</label>
+<input required placeholder="Motorcycle model">
+<label>Why do you want to join?</label>
+<textarea rows="3" placeholder="Tell us about yourself"></textarea>
+<button class="submit" type="submit">SUBMIT MEMBERSHIP APPLICATION</button>
+</form>
+<p class="small">Membership fee: To be announced. Applications are subject to admin approval.</p>
+</div>
+</section>
+
+<section id="shop">
+<h2 class="heading">OUR COLLECTION</h2>
+<div class="cards">
+
+<div class="card">
+<div class="product-img">👕</div>
+<div class="card-content">
+<h3>HLIMENRIDERS T-Shirt</h3>
+<p class="price">Price to be announced</p>
+<label>Size</label>
+<select id="size1">
+<option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option>
+</select>
+<label>Colour</label>
+<select id="color1">
+<option>Black</option><option>White</option>
+</select>
+<button onclick="add('HLIMENRIDERS T-Shirt','size1','color1')">ADD TO CART</button>
+</div>
+</div>
+
+<div class="card">
+<div class="product-img">🧥</div>
+<div class="card-content">
+<h3>HLIMENRIDERS Hoodie</h3>
+<p class="price">Price to be announced</p>
+<label>Size</label>
+<select id="size2">
+<option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option>
+</select>
+<label>Colour</label>
+<select id="color2">
+<option>Black</option><option>White</option>
+</select>
+<button onclick="add('HLIMENRIDERS Hoodie','size2','color2')">ADD TO CART</button>
+</div>
+</div>
+
+</div>
+</section>
+
+<section id="cart">
+<h2 class="heading">YOUR SHOPPING CART</h2>
+<div class="panel">
+<div id="items">Your cart is empty.</div>
+<p class="small">Final product prices and delivery charges will be confirmed before payment.</p>
+<button class="submit" onclick="checkout()">CONTINUE TO ORDER</button>
+</div>
+</section>
+
+<footer>
+<h3>HLIMENRIDERS</h3>
+<p>OFFICIAL MEMBERSHIP & CLOTHING STORE</p>
+<p class="small">© 2026 HLIMENRIDERS. All rights reserved.</p>
+</footer>
+
+<script>
+let cart=[];
+function add(name,size,color){
+cart.push({name,size:document.getElementById(size).value,
+color:document.getElementById(color).value});
+render();
+alert("Product added to cart!");
+}
+function render(){
+document.getElementById('count').textContent=cart.length;
+document.getElementById('items').innerHTML=cart.length?
+cart.map((p,i)=>`<div class="cartline">
+<span>${p.name}<br><small>${p.size} / ${p.color}</small></span>
+<button onclick="removeItem(${i})">Remove</button>
+</div>`).join(''):"Your cart is empty.";
+}
+function removeItem(i){cart.splice(i,1);render();}
+function checkout(){
+if(!cart.length){alert("Your cart is empty!");return;}
+alert("Your selected products: "+cart.map(p=>p.name+" ("+p.size+", "+p.color+")").join(", ")+"\n\nOnline order submission will be activated after we set up the order system.");
+}
+document.getElementById('memberForm').addEventListener('submit',function(e){
+e.preventDefault();
+alert("Your form is ready! Secure membership submission will be connected in the next step.");
+});
+</script>
+</body>
+</html>
