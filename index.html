@@ -4,14 +4,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>HLIMENRIDERS | Official Store</title>
+<title>HLIMENRIDERS | Official Website</title>
+
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-.product-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 9px;
-}
+
 <style>
 * {
   box-sizing: border-box;
@@ -21,25 +17,30 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #A9D9F2;
-  color: #123B59;
+  background: #101010;
+  color: #F5F5F5;
 }
 
 header {
-  background: #D7EFFB;
+  background: #080808;
   padding: 18px 5%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   gap: 15px;
-  border-bottom: 2px solid #8CC7E8;
+  border-bottom: 2px solid #D71920;
 }
 
 .logo {
-  font-size: 22px;
+  font-size: 23px;
   font-weight: 900;
+  color: #FFFFFF;
   letter-spacing: 1px;
+}
+
+.logo span {
+  color: #E21B24;
 }
 
 nav {
@@ -49,35 +50,44 @@ nav {
 }
 
 nav a {
-  color: #123B59;
+  color: #FFFFFF;
   text-decoration: none;
   font-size: 13px;
   font-weight: bold;
 }
 
+nav a:hover {
+  color: #FF3038;
+}
+
 .hero {
-  padding: 90px 6%;
+  padding: 100px 6%;
   text-align: center;
-  background: linear-gradient(135deg, #BCE5F8, #80C5E9);
+  background: linear-gradient(135deg, #242424, #080808);
+  border-bottom: 1px solid #B71920;
 }
 
 .hero h1 {
   font-size: clamp(38px, 8vw, 68px);
-  margin: 12px 0;
+  margin: 15px 0;
   font-weight: 900;
 }
 
+.hero h1 span {
+  color: #E21B24;
+}
+
 .hero p {
+  color: #BBBBBB;
   letter-spacing: 2px;
-  color: #315E79;
 }
 
 .btn, button {
   display: inline-block;
-  background: #247FB4;
+  background: #D71920;
   color: white;
-  border: 0;
-  border-radius: 7px;
+  border: none;
+  border-radius: 6px;
   padding: 14px 22px;
   font-weight: bold;
   cursor: pointer;
@@ -85,11 +95,11 @@ nav a {
 }
 
 .btn {
-  margin-top: 15px;
+  margin-top: 18px;
 }
 
 button:hover, .btn:hover {
-  background: #145D8B;
+  background: #A80F16;
 }
 
 section {
@@ -102,12 +112,16 @@ section {
   margin-bottom: 30px;
 }
 
+.heading span {
+  color: #E21B24;
+}
+
 .panel, .card {
-  background: #D7EFFB;
-  border: 1px solid #8CC7E8;
+  background: #1C1C1C;
+  border: 1px solid #383838;
   border-radius: 12px;
   padding: 23px;
-  box-shadow: 0 5px 15px #397CA522;
+  box-shadow: 0 5px 18px #00000055;
 }
 
 .panel {
@@ -119,32 +133,36 @@ label {
   display: block;
   font-size: 14px;
   font-weight: bold;
-  margin-top: 13px;
+  margin-top: 15px;
 }
 
 input, select, textarea {
   width: 100%;
   padding: 13px;
   margin: 7px 0;
-  border: 1px solid #83BBD9;
+  border: 1px solid #444444;
   border-radius: 6px;
-  background: #EFF9FE;
-  color: #123B59;
+  background: #292929;
+  color: white;
   font-size: 15px;
 }
 
 input:focus, select:focus, textarea:focus {
-  outline: 2px solid #247FB4;
+  outline: 2px solid #D71920;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #AAAAAA;
 }
 
 .submit {
   width: 100%;
-  margin-top: 18px;
+  margin-top: 22px;
 }
 
 .small {
   font-size: 12px;
-  color: #426B83;
+  color: #AAAAAA;
   line-height: 1.6;
 }
 
@@ -155,12 +173,18 @@ input:focus, select:focus, textarea:focus {
 }
 
 .product-img {
-  height: 160px;
+  height: 220px;
+  background: #292929;
+  border-radius: 9px;
+  overflow: hidden;
   display: grid;
   place-items: center;
-  font-size: 75px;
-  background: #BCE5F8;
-  border-radius: 9px;
+}
+
+.product-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .card-content {
@@ -168,14 +192,14 @@ input:focus, select:focus, textarea:focus {
 }
 
 .price {
-  font-size: 20px;
+  font-size: 21px;
   font-weight: bold;
-  color: #145D8B;
+  color: #FF3038;
 }
 
 .card button {
   width: 100%;
-  margin-top: 12px;
+  margin-top: 15px;
 }
 
 .cartline {
@@ -183,37 +207,43 @@ input:focus, select:focus, textarea:focus {
   justify-content: space-between;
   align-items: center;
   gap: 10px;
-  padding: 12px 0;
-  border-bottom: 1px solid #83BBD9;
+  padding: 13px 0;
+  border-bottom: 1px solid #444444;
 }
 
-.cartline button {
+.remove {
+  background: #555555;
   padding: 9px 12px;
-  background: #A33D3D;
 }
 
 #successBox {
   display: none;
   max-width: 650px;
-  margin: 20px auto;
-  padding: 22px;
+  margin: 25px auto;
+  padding: 23px;
   border-radius: 10px;
-  background: #D7EFFB;
-  border: 2px solid #247FB4;
+  background: #1C1C1C;
+  border: 2px solid #D71920;
   text-align: center;
 }
 
 #successBox a {
-  color: #145D8B;
+  display: inline-block;
+  color: white;
+  background: #D71920;
+  padding: 13px 18px;
+  border-radius: 6px;
+  text-decoration: none;
   font-weight: bold;
+  margin-top: 12px;
 }
 
 footer {
   text-align: center;
   padding: 35px;
-  background: #D7EFFB;
-  color: #315E79;
-  border-top: 1px solid #8CC7E8;
+  background: #080808;
+  color: #AAAAAA;
+  border-top: 2px solid #D71920;
 }
 
 @media(max-width: 500px) {
@@ -226,7 +256,7 @@ footer {
   }
 
   .hero {
-    padding: 65px 5%;
+    padding: 70px 5%;
   }
 }
 </style>
@@ -235,7 +265,8 @@ footer {
 <body>
 
 <header>
-  <div class="logo">HLIMENRIDERS</div>
+  <div class="logo">HLIMEN<span>RIDERS</span></div>
+
   <nav>
     <a href="#home">HOME</a>
     <a href="#membership">JOIN</a>
@@ -246,81 +277,86 @@ footer {
 
 <div class="hero" id="home">
   <p>WELCOME TO THE OFFICIAL STORE</p>
-  <h1>HLIMENRIDERS</h1>
+  <h1>HLIMEN<span>RIDERS</span></h1>
   <p>RIDE TOGETHER. STAND TOGETHER.</p>
   <a class="btn" href="#shop">EXPLORE STORE</a>
 </div>
 
+<!-- MEMBERSHIP -->
+
 <section id="membership">
-  <h2 class="heading">BECOME A MEMBER</h2>
+  <h2 class="heading">BECOME A <span>MEMBER</span></h2>
 
   <div class="panel">
     <h3>HLIMENRIDERS Membership Registration</h3>
-    
-<form id="memberForm">
+    <p class="price">Membership Fee: ₹100</p>
 
-  <label>Name / Hming</label>
-  <input id="memberName" type="text"
-    placeholder="Enter your name" required>
+    <form id="memberForm">
 
-  <label>Kohdan</label>
-  <input id="memberKohdan" type="text"
-    placeholder="Enter your Kohdan" required>
+      <label>Name / Hming</label>
+      <input id="memberName" type="text"
+        placeholder="Enter your name" required>
 
-  <label>Nu / Pa Hming</label>
-  <input id="memberParent" type="text"
-    placeholder="Enter Nu / Pa Hming" required>
+      <label>Kohdan</label>
+      <input id="memberKohdan" type="text"
+        placeholder="Enter your Kohdan" required>
 
-  <label>Driving Licence No</label>
-  <input id="memberDL" type="text"
-    placeholder="Enter driving licence number" required>
+      <label>Nu / Pa Hming</label>
+      <input id="memberParent" type="text"
+        placeholder="Enter Nu / Pa Hming" required>
 
-  <label>Date of Birth</label>
-  <input id="memberDOB" type="date" required>
+      <label>Driving Licence No</label>
+      <input id="memberDL" type="text"
+        placeholder="Enter driving licence number" required>
 
-  <label>Phone Number</label>
-  <input id="memberPhone" type="tel"
-    placeholder="Enter phone number" required>
+      <label>Date of Birth</label>
+      <input id="memberDOB" type="date" required>
 
-  <label>Email ID</label>
-  <input id="memberEmail" type="email"
-    placeholder="Enter email address" required>
+      <label>Phone Number</label>
+      <input id="memberPhone" type="tel"
+        placeholder="Enter phone number" required>
 
-  <label>Veng Hming</label>
-  <input id="memberAddress" type="text"
-    placeholder="Enter Veng Hming" required>
+      <label>Email ID</label>
+      <input id="memberEmail" type="email"
+        placeholder="Enter email address" required>
 
-  <button class="submit" type="submit">
-    PAY ₹100 & APPLY
-  </button>
+      <label>Veng Hming</label>
+      <input id="memberAddress" type="text"
+        placeholder="Enter Veng Hming" required>
 
-</form>
-      
+      <button class="submit" type="submit">
+        PAY ₹100 & APPLY
+      </button>
+
+    </form>
 
     <p class="small">
-      Payment is verified securely before membership access is shown.
-      Application details are not stored by the current payment backend.
+      Please check your information before submitting.
     </p>
   </div>
 
   <div id="successBox">
-    <h3 id="successTitle">Payment successful!</h3>
+    <h3 id="successTitle">Payment Successful!</h3>
     <p id="successMessage"></p>
-    <a id="joinLink" href="#" target="_blank" rel="noopener" style="display:none">
-      JOIN HLIMENRIDERS WHATSAPP GROUP
+    <a id="joinLink" href="#" target="_blank"
+      rel="noopener" style="display:none">
+      JOIN WHATSAPP GROUP
     </a>
   </div>
 </section>
 
+<!-- SHOP -->
+
 <section id="shop">
-  <h2 class="heading">OUR COLLECTION</h2>
+  <h2 class="heading">OUR <span>COLLECTION</span></h2>
 
   <div class="cards">
 
     <div class="card">
       <div class="product-img">
-  <img src="tshirt.jpg" alt="HLIMENRIDERS T-Shirt">
+        <img src="tshirt.jpg" alt="HLIMENRIDERS T-Shirt">
       </div>
+
       <div class="card-content">
         <h3>HLIMENRIDERS T-Shirt</h3>
         <p class="price">₹650</p>
@@ -348,8 +384,9 @@ footer {
 
     <div class="card">
       <div class="product-img">
-  <img src="hoodie.jpg" alt="HLIMENRIDERS Hoodie">
+        <img src="hoodie.jpg" alt="HLIMENRIDERS Hoodie">
       </div>
+
       <div class="card-content">
         <h3>HLIMENRIDERS Hoodie</h3>
         <p class="price">₹1,400</p>
@@ -378,21 +415,28 @@ footer {
   </div>
 </section>
 
+<!-- CART -->
+
 <section id="cart">
-  <h2 class="heading">YOUR SHOPPING CART</h2>
+  <h2 class="heading">YOUR <span>CART</span></h2>
 
   <div class="panel">
     <div id="items">Your cart is empty.</div>
-    <button class="submit" onclick="checkout()">CONTINUE TO PAYMENT</button>
+
+    <button class="submit" onclick="checkout()">
+      CONTINUE TO PAYMENT
+    </button>
+
     <p class="small">
-      One product per payment. Delivery arrangements can be confirmed separately.
+      One product per payment. Delivery arrangements
+      can be confirmed separately.
     </p>
   </div>
 </section>
 
 <footer>
   <h3>HLIMENRIDERS</h3>
-  <p>OFFICIAL MEMBERSHIP & CLOTHING STORE</p>
+  <p>RIDE TOGETHER. STAND TOGETHER.</p>
   <p class="small">© 2026 HLIMENRIDERS. All rights reserved.</p>
 </footer>
 
@@ -410,13 +454,13 @@ const prices = {
 
 function add(name, item, sizeId, colorId) {
   if (cart.length > 0) {
-    alert("Please complete or remove your current item before adding another.");
+    alert("Please complete or remove your current item first.");
     return;
   }
 
   cart.push({
-    name: name,
-    item: item,
+    name,
+    item,
     size: document.getElementById(sizeId).value,
     color: document.getElementById(colorId).value
   });
@@ -436,7 +480,9 @@ function render() {
           <small>${p.size} / ${p.color}</small><br>
           ₹${prices[p.item]}
         </span>
-        <button onclick="removeItem(${i})">Remove</button>
+        <button class="remove" onclick="removeItem(${i})">
+          REMOVE
+        </button>
       </div>
     `).join("")
     : "Your cart is empty.";
@@ -451,7 +497,7 @@ async function startPayment(item) {
   if (paymentBusy) return;
 
   if (typeof Razorpay === "undefined") {
-    alert("Payment window could not load. Please check your internet connection.");
+    alert("Payment window could not load. Check your internet.");
     return;
   }
 
@@ -467,7 +513,7 @@ async function startPayment(item) {
     const order = await response.json();
 
     if (!response.ok || !order.order_id || !order.key_id) {
-      throw new Error(order.error || order.message || "Could not create payment order.");
+      throw new Error(order.error || order.message || "Could not create order.");
     }
 
     const options = {
@@ -482,7 +528,7 @@ async function startPayment(item) {
           : "HLIMENRIDERS Hoodie",
       order_id: order.order_id,
 
-      handler: async function (result) {
+      handler: async function(result) {
         try {
           const verifyResponse = await fetch(API + "/verify-payment", {
             method: "POST",
@@ -501,36 +547,34 @@ async function startPayment(item) {
             throw new Error(verified.error || "Payment verification failed.");
           }
 
-          if (item === "membership") {
-            document.getElementById("successTitle").textContent =
-              "Membership payment successful!";
+          const box = document.getElementById("successBox");
+          const title = document.getElementById("successTitle");
+          const message = document.getElementById("successMessage");
+          const link = document.getElementById("joinLink");
 
-            document.getElementById("successMessage").textContent =
-              "Your payment has been verified. You can now join the group.";
+          if (item === "membership") {
+            title.textContent = "Membership Payment Successful!";
+            message.textContent =
+              "Your payment has been verified.";
 
             if (verified.join_url) {
-              const link = document.getElementById("joinLink");
               link.href = verified.join_url;
               link.style.display = "inline-block";
             }
           } else {
-            document.getElementById("successTitle").textContent =
-              "Order payment successful!";
-
-            document.getElementById("successMessage").textContent =
+            title.textContent = "Order Payment Successful!";
+            message.textContent =
               "Your payment has been verified. Please contact HLIMENRIDERS to arrange delivery.";
 
-            document.getElementById("joinLink").style.display = "none";
+            link.style.display = "none";
             cart = [];
             render();
           }
 
-          document.getElementById("successBox").style.display = "block";
-          document.getElementById("successBox").scrollIntoView({
-            behavior: "smooth"
-          });
+          box.style.display = "block";
+          box.scrollIntoView({ behavior: "smooth" });
 
-        } catch (error) {
+        } catch(error) {
           alert("Payment was made, but verification needs attention: " + error.message);
         } finally {
           paymentBusy = false;
@@ -538,19 +582,19 @@ async function startPayment(item) {
       },
 
       modal: {
-        ondismiss: function () {
+        ondismiss: function() {
           paymentBusy = false;
         }
       },
 
       theme: {
-        color: "#247FB4"
+        color: "#D71920"
       }
     };
 
     const paymentWindow = new Razorpay(options);
 
-    paymentWindow.on("payment.failed", function (response) {
+    paymentWindow.on("payment.failed", function(response) {
       paymentBusy = false;
       alert("Payment failed: " +
         (response.error.description || "Please try again."));
@@ -558,7 +602,7 @@ async function startPayment(item) {
 
     paymentWindow.open();
 
-  } catch (error) {
+  } catch(error) {
     paymentBusy = false;
     alert("Could not start payment: " + error.message);
   }
