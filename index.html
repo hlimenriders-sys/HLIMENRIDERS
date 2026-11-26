@@ -35,11 +35,11 @@ header {
 .logo {
   font-size: 23px;
   font-weight: 900;
-  color: #FFFFFF;
+  color: white;
   letter-spacing: 1px;
 }
 
-.logo span {
+.logo span, .hero h1 span, .heading span {
   color: #E21B24;
 }
 
@@ -50,7 +50,7 @@ nav {
 }
 
 nav a {
-  color: #FFFFFF;
+  color: white;
   text-decoration: none;
   font-size: 13px;
   font-weight: bold;
@@ -63,7 +63,7 @@ nav a:hover {
 .hero {
   padding: 100px 6%;
   text-align: center;
-  background: linear-gradient(135deg, #242424, #080808);
+  background: linear-gradient(135deg, #252525, #080808);
   border-bottom: 1px solid #B71920;
 }
 
@@ -71,10 +71,6 @@ nav a:hover {
   font-size: clamp(38px, 8vw, 68px);
   margin: 15px 0;
   font-weight: 900;
-}
-
-.hero h1 span {
-  color: #E21B24;
 }
 
 .hero p {
@@ -112,10 +108,6 @@ section {
   margin-bottom: 30px;
 }
 
-.heading span {
-  color: #E21B24;
-}
-
 .panel, .card {
   background: #1C1C1C;
   border: 1px solid #383838;
@@ -140,7 +132,7 @@ input, select, textarea {
   width: 100%;
   padding: 13px;
   margin: 7px 0;
-  border: 1px solid #444444;
+  border: 1px solid #444;
   border-radius: 6px;
   background: #292929;
   color: white;
@@ -152,7 +144,7 @@ input:focus, select:focus, textarea:focus {
 }
 
 input::placeholder, textarea::placeholder {
-  color: #AAAAAA;
+  color: #AAA;
 }
 
 .submit {
@@ -162,7 +154,7 @@ input::placeholder, textarea::placeholder {
 
 .small {
   font-size: 12px;
-  color: #AAAAAA;
+  color: #AAA;
   line-height: 1.6;
 }
 
@@ -208,11 +200,11 @@ input::placeholder, textarea::placeholder {
   align-items: center;
   gap: 10px;
   padding: 13px 0;
-  border-bottom: 1px solid #444444;
+  border-bottom: 1px solid #444;
 }
 
 .remove {
-  background: #555555;
+  background: #555;
   padding: 9px 12px;
 }
 
@@ -242,7 +234,7 @@ footer {
   text-align: center;
   padding: 35px;
   background: #080808;
-  color: #AAAAAA;
+  color: #AAA;
   border-top: 2px solid #D71920;
 }
 
@@ -266,7 +258,6 @@ footer {
 
 <header>
   <div class="logo">HLIMEN<span>RIDERS</span></div>
-
   <nav>
     <a href="#home">HOME</a>
     <a href="#membership">JOIN</a>
@@ -282,7 +273,7 @@ footer {
   <a class="btn" href="#shop">EXPLORE STORE</a>
 </div>
 
-<!-- MEMBERSHIP -->
+<!-- MEMBERSHIP REGISTRATION -->
 
 <section id="membership">
   <h2 class="heading">BECOME A <span>MEMBER</span></h2>
@@ -345,20 +336,22 @@ footer {
   </div>
 </section>
 
-<!-- SHOP -->
+<!-- PRODUCTS -->
 
 <section id="shop">
   <h2 class="heading">OUR <span>COLLECTION</span></h2>
 
   <div class="cards">
 
+    <!-- BLACK T-SHIRT -->
+
     <div class="card">
       <div class="product-img">
-        <img src="tshirt.jpg" alt="HLIMENRIDERS T-Shirt">
+        <img src="tshirt.jpg" alt="Black HLIMENRIDERS T-Shirt">
       </div>
 
       <div class="card-content">
-        <h3>HLIMENRIDERS T-Shirt</h3>
+        <h3>HLIMENRIDERS Black T-Shirt</h3>
         <p class="price">₹650</p>
 
         <label>Size</label>
@@ -370,25 +363,23 @@ footer {
           <option>XXL</option>
         </select>
 
-        <label>Colour</label>
-        <select id="color1">
-          <option>Black</option>
-          <option>White</option>
-        </select>
+        <p class="small">Colour: Black only</p>
 
-        <button onclick="add('HLIMENRIDERS T-Shirt','tshirt','size1','color1')">
+        <button onclick="add('HLIMENRIDERS Black T-Shirt','tshirt','size1')">
           ADD TO CART
         </button>
       </div>
     </div>
 
+    <!-- BLACK HOODIE -->
+
     <div class="card">
       <div class="product-img">
-        <img src="hoodie.jpg" alt="HLIMENRIDERS Hoodie">
+        <img src="hoodie.jpg" alt="Black HLIMENRIDERS Hoodie">
       </div>
 
       <div class="card-content">
-        <h3>HLIMENRIDERS Hoodie</h3>
+        <h3>HLIMENRIDERS Black Hoodie</h3>
         <p class="price">₹1,400</p>
 
         <label>Size</label>
@@ -400,13 +391,9 @@ footer {
           <option>XXL</option>
         </select>
 
-        <label>Colour</label>
-        <select id="color2">
-          <option>Black</option>
-          <option>White</option>
-        </select>
+        <p class="small">Colour: Black only</p>
 
-        <button onclick="add('HLIMENRIDERS Hoodie','hoodie','size2','color2')">
+        <button onclick="add('HLIMENRIDERS Black Hoodie','hoodie','size2')">
           ADD TO CART
         </button>
       </div>
@@ -415,7 +402,7 @@ footer {
   </div>
 </section>
 
-<!-- CART -->
+<!-- SHOPPING CART -->
 
 <section id="cart">
   <h2 class="heading">YOUR <span>CART</span></h2>
@@ -452,17 +439,16 @@ const prices = {
   hoodie: 1400
 };
 
-function add(name, item, sizeId, colorId) {
+function add(name, item, sizeId) {
   if (cart.length > 0) {
     alert("Please complete or remove your current item first.");
     return;
   }
 
   cart.push({
-    name,
-    item,
-    size: document.getElementById(sizeId).value,
-    color: document.getElementById(colorId).value
+    name: name,
+    item: item,
+    size: document.getElementById(sizeId).value
   });
 
   render();
@@ -477,7 +463,7 @@ function render() {
       <div class="cartline">
         <span>
           <strong>${p.name}</strong><br>
-          <small>${p.size} / ${p.color}</small><br>
+          <small>Size: ${p.size} / Black</small><br>
           ₹${prices[p.item]}
         </span>
         <button class="remove" onclick="removeItem(${i})">
@@ -524,8 +510,8 @@ async function startPayment(item) {
       description: item === "membership"
         ? "HLIMENRIDERS Membership"
         : item === "tshirt"
-          ? "HLIMENRIDERS T-Shirt"
-          : "HLIMENRIDERS Hoodie",
+          ? "HLIMENRIDERS Black T-Shirt"
+          : "HLIMENRIDERS Black Hoodie",
       order_id: order.order_id,
 
       handler: async function(result) {
@@ -554,8 +540,7 @@ async function startPayment(item) {
 
           if (item === "membership") {
             title.textContent = "Membership Payment Successful!";
-            message.textContent =
-              "Your payment has been verified.";
+            message.textContent = "Your payment has been verified.";
 
             if (verified.join_url) {
               link.href = verified.join_url;
