@@ -493,7 +493,10 @@ async function startPayment(item) {
     const response = await fetch(API + "/create-order", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ item: item })
+      body: JSON.stringify({
+  productId: item,
+  quantity: 1
+})
     });
 
     const order = await response.json();
