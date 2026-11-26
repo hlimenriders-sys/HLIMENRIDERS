@@ -532,7 +532,7 @@ async function startPayment(item) {
 
           const verified = await verifyResponse.json();
 
-          if (!verifyResponse.ok || verified.success !== true) {
+          if (!verifyResponse.ok || verified.verified !== true) {
             throw new Error(verified.error || "Payment verification failed.");
           }
 
